@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2026-08-30T20:37:36.7020633"><title>准备环境和入口 | ShareAgent 自动化用例录入指南</title><script type="application/json" id="virtual-toc-data">[{"id":"-azm5gb_5","level":0,"title":"操作前确认","anchor":"#-azm5gb_5"},{"id":"agent","level":0,"title":"打开 Agent 评测","anchor":"#agent"},{"id":"llm","level":0,"title":"配置 LLM 测试用户信息","anchor":"#llm"},{"id":"-azm5gb_8","level":0,"title":"准备业务变量","anchor":"#-azm5gb_8"},{"id":"-azm5gb_74","level":1,"title":"跨企业复用","anchor":"#-azm5gb_74"},{"id":"-azm5gb_75","level":1,"title":"更新已有记录","anchor":"#-azm5gb_75"},{"id":"-azm5gb_9","level":0,"title":"下一步","anchor":"#-azm5gb_9"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.25.3-b857/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="准备环境和入口 | ShareAgent 自动化用例录入指南"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="ShareAgent 自动化用例录入指南 Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/prepare.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="准备环境和入口 | ShareAgent 自动化用例录入指南"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/prepare.html#webpage",
+    "url": "writerside-documentation/prepare.html",
+    "name": "准备环境和入口 | ShareAgent 自动化用例录入指南",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "ShareAgent 自动化用例录入指南 Help"
+}</script><!-- End Schema.org --></head><body data-id="prepare" data-main-title="准备环境和入口" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>ShareAgent 自动化用例录入指南  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="prepare" id="prepare.md">准备环境和入口</h1><p id="-azm5gb_4">开始录入前，需要确认当前企业具备 Agent 评测权限，并准备好执行用的测试用户、 测试环境地址和业务变量。环境相关值不要直接从其他企业复制。</p><section class="chapter"><h2 id="-azm5gb_5" data-toc="-azm5gb_5">操作前确认</h2><div class="table-wrapper"><table class="wide" id="-azm5gb_10"><thead><tr class="ijRowHead" id="-azm5gb_11"><th id="-azm5gb_18"><p>检查项</p></th><th id="-azm5gb_19"><p>需要确认的内容</p></th></tr></thead><tbody><tr id="-azm5gb_12"><td id="-azm5gb_20"><p>企业</p></td><td id="-azm5gb_21"><p>当前登录的 fs 企业是目标测试企业。</p></td></tr><tr id="-azm5gb_13"><td id="-azm5gb_22"><p>权限</p></td><td id="-azm5gb_23"><p>账号可以打开 AI 工作台和 Agent 评测。</p></td></tr><tr id="-azm5gb_14"><td id="-azm5gb_24"><p>Agent</p></td><td id="-azm5gb_25"><p>评测用的 Agent 名称和 API 名已确认。</p></td></tr><tr id="-azm5gb_15"><td id="-azm5gb_26"><p>测试用户</p></td><td id="-azm5gb_27"><p>已配置登录信息、企业信息和访问地址。</p></td></tr><tr id="-azm5gb_16"><td id="-azm5gb_28"><p>测试数据</p></td><td id="-azm5gb_29"><p>需要复用的记录、人员和部门已经准备好。</p></td></tr><tr id="-azm5gb_17"><td id="-azm5gb_30"><p>附件</p></td><td id="-azm5gb_31"><p>附件场景的文件已上传到执行环境。</p></td></tr></tbody></table></div></section><section class="chapter"><h2 id="agent" data-toc="agent">打开 Agent 评测</h2><p id="-azm5gb_32">在 fs 企业中按以下路径进入：</p><div class="code-block" data-lang="none">
+fs 企业 -&gt; AI 工作台 -&gt; Agent 评测
+</div><figure id="-azm5gb_34"><img alt="AI 工作台中的 Agent 评测入口" src="/fs-agent-evaluation-entry.png" title="AI 工作台中的 Agent 评测入口" width="1910" height="923"></figure><p id="-azm5gb_35">如果左侧导航栏没有 AI 工作台，可以使用以下方式调整导航：</p><ol class="list _decimal" id="-azm5gb_36" type="1"><li class="list__item" id="-azm5gb_38"><p id="-azm5gb_42">从左侧导航栏打开&ldquo;更多&rdquo;。</p></li><li class="list__item" id="-azm5gb_39"><p id="-azm5gb_43">进入&ldquo;导航设置&rdquo;。</p></li><li class="list__item" id="-azm5gb_40"><p id="-azm5gb_44">打开&ldquo;应用显示&rdquo;。</p></li><li class="list__item" id="-azm5gb_41"><p id="-azm5gb_45">找到 AI 工作台，并将其移动到主导航。</p></li></ol><figure id="-azm5gb_37"><img alt="将 AI 工作台移动到主导航" src="/ai-workbench-navigation.png" title="将 AI 工作台移动到主导航" width="1910" height="923"></figure></section><section class="chapter"><h2 id="llm" data-toc="llm">配置 LLM 测试用户信息</h2><p id="-azm5gb_46">进入：</p><div class="code-block" data-lang="none">
+AI 工作台 -&gt; Agent 评测 -&gt; 其他 -&gt; LLM 测试用户信息
+</div><figure id="-azm5gb_48"><img alt="LLM 测试用户信息配置入口" src="/configure-llm-test-user.png" title="LLM 测试用户信息配置入口" width="1910" height="923"></figure><p id="-azm5gb_49">至少确认以下信息：</p><div class="table-wrapper"><table class="wide" id="-azm5gb_50"><thead><tr class="ijRowHead" id="-azm5gb_56"><th id="-azm5gb_61"><p>配置</p></th><th id="-azm5gb_62"><p>说明</p></th></tr></thead><tbody><tr id="-azm5gb_57"><td id="-azm5gb_63"><p>企业和用户</p></td><td id="-azm5gb_64"><p>测试请求实际使用的企业与用户。不同用户可能有不同的数据权限。</p></td></tr><tr id="-azm5gb_58"><td id="-azm5gb_65"><p>baseurl</p></td><td id="-azm5gb_66"><p>测试账号所在 fs 环境的访问域名。</p></td></tr><tr id="-azm5gb_59"><td id="-azm5gb_67"><p>Agent 标识</p></td><td id="-azm5gb_68"><p>需要执行的 Agent API 名或产品配置名称。</p></td></tr><tr id="-azm5gb_60"><td id="-azm5gb_69"><p>登录信息</p></td><td id="-azm5gb_70"><p>按当前系统要求配置，不要将密码、Cookie、Token 或验证码写入用例。</p></td></tr></tbody></table></div><p id="-azm5gb_51">baseurl 应填写当前环境的访问域名，例如：</p><div class="code-block" data-lang="none">
+www.fxiaoke.com
+</div><p id="-azm5gb_53">测试环境可能使用其他域名，例如：</p><div class="code-block" data-lang="none">
+crm.ceshi112.com
+</div><p id="-azm5gb_55">上面的域名只是写法示例，实际值以测试账号所在环境为准。</p></section><section class="chapter"><h2 id="-azm5gb_8" data-toc="-azm5gb_8">准备业务变量</h2><p id="-azm5gb_71">业务变量是测试执行时的运行上下文和数据夹具，适合保存不会写死在每条用例中的 记录和人员信息。</p><p id="-azm5gb_72">一个最小的对象变量示例：</p><div class="code-block" data-lang="json">
+{
+  &quot;object_data&quot;: {
+    &quot;AccountObj&quot;: [
+      {
+        &quot;id&quot;: &quot;replace-with-current-account-id&quot;,
+        &quot;name&quot;: &quot;当前企业的测试客户&quot;
+      }
+    ]
+  },
+  &quot;employee_data&quot;: [
+    {
+      &quot;id&quot;: &quot;replace-with-current-employee-id&quot;,
+      &quot;name&quot;: &quot;当前测试人员&quot;,
+      &quot;user_name&quot;: &quot;current_test_user&quot;,
+      &quot;is_current&quot;: true
+    }
+  ]
+}
+</div><section class="chapter"><h3 id="-azm5gb_74" data-toc="-azm5gb_74">跨企业复用</h3><p id="-azm5gb_76">同一条用例需要在多个企业执行时，用 data_key 保存稳定的业务含义；每个企业 分别维护自己的记录 ID 和展示名称。</p><div class="code-block" data-lang="json">
+{
+  &quot;data_key&quot;: &quot;sales_followup_record&quot;,
+  &quot;id&quot;: &quot;enterprise-specific-record-id&quot;,
+  &quot;name&quot;: &quot;enterprise-specific-record-name&quot;
+}
+</div></section><section class="chapter"><h3 id="-azm5gb_75" data-toc="-azm5gb_75">更新已有记录</h3><p id="-azm5gb_78">更新场景通常有两个不同需求：</p><ul class="list _bullet" id="-azm5gb_79"><li class="list__item" id="-azm5gb_82"><p id="-azm5gb_84">给 Agent 的输入：使用用户能看懂的记录名称、编号或主题。</p></li><li class="list__item" id="-azm5gb_83"><p id="-azm5gb_85">校验目标：使用业务变量解析出的记录 ID，确认更新的是指定记录。</p></li></ul><p id="-azm5gb_80">不要把一个企业里的真实记录 ID 直接复制到另一个企业的用例中。</p><figure id="-azm5gb_81"><img alt="业务变量示例" src="/business-variable-example.png" title="业务变量示例" width="1083" height="820"></figure></section></section><section class="chapter"><h2 id="-azm5gb_9" data-toc="-azm5gb_9">下一步</h2><p id="-azm5gb_86">准备好环境后，继续阅读 <a href="test-data.html" id="-azm5gb_87" data-tooltip="LLM 测试数据是一条可执行的自动化用例。它至少需要包含用户完整输入和与场景匹配 的预期结果；如果用例依赖企业数据、人员或附件，还需要在测试用户或测试场景中 准备相应的运行上下文。">创建测试数据</a>。</p></section><div class="last-modified">30 八月 2026</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="overview.html" class="navigation-links__prev">ShareAgent 自动化用例录入指南</a><a href="test-data.html" class="navigation-links__next">创建测试集和测试数据</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.25.3-b857/app.js"></script></body></html>

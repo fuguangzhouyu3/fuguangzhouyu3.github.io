@@ -1,0 +1,256 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2026-08-30T20:37:36.7020633"><title>编写预期结果 | ShareAgent 自动化用例录入指南</title><script type="application/json" id="virtual-toc-data">[{"id":"z4tg9iy_5","level":0,"title":"公共结构","anchor":"#z4tg9iy_5"},{"id":"z4tg9iy_6","level":0,"title":"预期工具结构","anchor":"#z4tg9iy_6"},{"id":"cli","level":1,"title":"CLI 场景","anchor":"#cli"},{"id":"z4tg9iy_38","level":1,"title":"内置能力","anchor":"#z4tg9iy_38"},{"id":"z4tg9iy_39","level":1,"title":"完整工具示例","anchor":"#z4tg9iy_39"},{"id":"create","level":0,"title":"创建场景 create","anchor":"#create"},{"id":"z4tg9iy_51","level":1,"title":"单对象创建","anchor":"#z4tg9iy_51"},{"id":"z4tg9iy_52","level":1,"title":"主从对象创建","anchor":"#z4tg9iy_52"},{"id":"z4tg9iy_53","level":1,"title":"多对象创建","anchor":"#z4tg9iy_53"},{"id":"update","level":0,"title":"更新场景 update","anchor":"#update"},{"id":"query","level":0,"title":"查询场景 query","anchor":"#query"},{"id":"analysis","level":0,"title":"聚合场景 analysis","anchor":"#analysis"},{"id":"z4tg9iy_79","level":1,"title":"按字段求和","anchor":"#z4tg9iy_79"},{"id":"z4tg9iy_80","level":1,"title":"统计记录数","anchor":"#z4tg9iy_80"},{"id":"z4tg9iy_11","level":0,"title":"参考答案语义校验","anchor":"#z4tg9iy_11"},{"id":"z4tg9iy_12","level":0,"title":"字段匹配方式","anchor":"#z4tg9iy_12"},{"id":"z4tg9iy_13","level":0,"title":"常见错误","anchor":"#z4tg9iy_13"},{"id":"z4tg9iy_14","level":0,"title":"下一步","anchor":"#z4tg9iy_14"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.25.3-b857/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="编写预期结果 | ShareAgent 自动化用例录入指南"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="ShareAgent 自动化用例录入指南 Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/expected-result.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="编写预期结果 | ShareAgent 自动化用例录入指南"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/expected-result.html#webpage",
+    "url": "writerside-documentation/expected-result.html",
+    "name": "编写预期结果 | ShareAgent 自动化用例录入指南",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "ShareAgent 自动化用例录入指南 Help"
+}</script><!-- End Schema.org --></head><body data-id="expected-result" data-main-title="编写预期结果" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>ShareAgent 自动化用例录入指南  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="expected-result" id="expected-result.md">编写预期结果</h1><p id="z4tg9iy_4">expected_result__c 是校验器使用的 JSON 配置。它描述预期的业务结果、工具调用、 Skill、子 Agent 和执行循环，不会作为用户问题直接发送给 Agent。</p><section class="chapter"><h2 id="z4tg9iy_5" data-toc="z4tg9iy_5">公共结构</h2><p id="z4tg9iy_15">以下结构展示常用字段。不同校验类型使用的业务字段不同，不要为了&ldquo;字段齐全&rdquo;而 把所有字段都复制到每条用例中。</p><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;create&quot;,
+  &quot;expected_tools&quot;: [],
+  &quot;expected_skills&quot;: [],
+  &quot;expected_agents&quot;: [],
+  &quot;loop&quot;: {
+    &quot;total&quot;: 5
+  }
+}
+</div><div class="table-wrapper"><table class="wide" id="z4tg9iy_17"><thead><tr class="ijRowHead" id="z4tg9iy_19"><th id="z4tg9iy_25"><p>字段</p></th><th id="z4tg9iy_26"><p>作用</p></th></tr></thead><tbody><tr id="z4tg9iy_20"><td id="z4tg9iy_27"><p>validate_type</p></td><td id="z4tg9iy_28"><p>选择校验类型，例如 create、update、query 或 analysis。</p></td></tr><tr id="z4tg9iy_21"><td id="z4tg9iy_29"><p>expected_tools</p></td><td id="z4tg9iy_30"><p>期望 Agent 调用的关键工具，可以使用工具名或带 action 的对象。</p></td></tr><tr id="z4tg9iy_22"><td id="z4tg9iy_31"><p>expected_skills</p></td><td id="z4tg9iy_32"><p>期望命中的 Skill API 名列表。</p></td></tr><tr id="z4tg9iy_23"><td id="z4tg9iy_33"><p>expected_agents</p></td><td id="z4tg9iy_34"><p>期望命中的子 Agent 名列表，当前实现的主读取键。</p></td></tr><tr id="z4tg9iy_24"><td id="z4tg9iy_35"><p>loop.total</p></td><td id="z4tg9iy_36"><p>该用例允许或预期的循环次数，按实际链路复杂度填写。</p></td></tr></tbody></table></div><p id="z4tg9iy_18">当前实现还兼容 expected_sub_agents 和 expected_subAgents。新用例优先使用 expected_agents；如果历史数据使用兼容键，录入前按部署版本确认。</p></section><section class="chapter"><h2 id="z4tg9iy_6" data-toc="z4tg9iy_6">预期工具结构</h2><section class="chapter"><h3 id="cli" data-toc="cli">CLI 场景</h3><p id="z4tg9iy_40">当工具调用按 API 名识别时，可以写：</p><div class="code-block" data-lang="json">
+{
+  &quot;name&quot;: &quot;sharecrm&quot;,
+  &quot;action&quot;: {
+    &quot;api_name&quot;: &quot;QueryRecordsByFields&quot;
+  }
+}
+</div><p id="z4tg9iy_42">按方法名识别时，可以写：</p><div class="code-block" data-lang="json">
+{
+  &quot;name&quot;: &quot;sharecrm&quot;,
+  &quot;action&quot;: {
+    &quot;method&quot;: &quot;query-by-fields&quot;
+  }
+}
+</div><p id="z4tg9iy_44">不要把展示文案当成 API 名；预期值应以实际工具调用中的结构化字段为准。</p></section><section class="chapter"><h3 id="z4tg9iy_38" data-toc="z4tg9iy_38">内置能力</h3><p id="z4tg9iy_45">DataAddAgent 常用的创建能力：</p><div class="code-block" data-lang="json">
+{
+  &quot;expected_agents&quot;: [
+    &quot;DataAddAgent&quot;
+  ],
+  &quot;expected_tools&quot;: [
+    &quot;crm-record-create&quot;
+  ]
+}
+</div><p id="z4tg9iy_47">DataEditAgent 常用的编辑能力：</p><div class="code-block" data-lang="json">
+{
+  &quot;expected_agents&quot;: [
+    &quot;DataEditAgent&quot;
+  ],
+  &quot;expected_tools&quot;: [
+    &quot;crm-record-edit&quot;
+  ]
+}
+</div></section><section class="chapter"><h3 id="z4tg9iy_39" data-toc="z4tg9iy_39">完整工具示例</h3><div class="code-block" data-lang="json">
+{
+  &quot;expected_agents&quot;: [
+    &quot;DataAddAgent&quot;
+  ],
+  &quot;expected_tools&quot;: [
+    {
+      &quot;name&quot;: &quot;crm-record-create&quot;
+    },
+    {
+      &quot;name&quot;: &quot;sharecrm&quot;,
+      &quot;action&quot;: {
+        &quot;api_name&quot;: &quot;CreateRecordsByData&quot;
+      }
+    }
+  ],
+  &quot;loop&quot;: {
+    &quot;total&quot;: 5
+  }
+}
+</div><p id="z4tg9iy_50">工具预期用于诊断 Agent 是否走了正确路径；它不能代替业务结果校验。</p></section></section><section class="chapter"><h2 id="create" data-toc="create">创建场景 create</h2><section class="chapter"><h3 id="z4tg9iy_51" data-toc="z4tg9iy_51">单对象创建</h3><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;create&quot;,
+  &quot;object_api_name&quot;: &quot;AccountObj&quot;,
+  &quot;object_display_name&quot;: &quot;客户&quot;,
+  &quot;required_fields&quot;: [
+    {
+      &quot;api_name&quot;: &quot;name&quot;,
+      &quot;value&quot;: &quot;${random:company}&quot;,
+      &quot;field_type&quot;: &quot;text&quot;,
+      &quot;match_mode&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;optional_fields&quot;: [],
+  &quot;details&quot;: [],
+  &quot;expected_skills&quot;: [
+    &quot;data-add&quot;
+  ],
+  &quot;loop&quot;: {
+    &quot;total&quot;: 5
+  }
+}
+</div><p id="z4tg9iy_55">required_fields 是必须满足的字段；optional_fields 用于补充校验或评分，是否 影响整体结果以当前校验器配置为准。</p></section><section class="chapter"><h3 id="z4tg9iy_52" data-toc="z4tg9iy_52">主从对象创建</h3><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;create&quot;,
+  &quot;object_datas&quot;: [
+    {
+      &quot;object_api_name&quot;: &quot;SalesOrderObj&quot;,
+      &quot;object_display_name&quot;: &quot;销售订单&quot;,
+      &quot;required_fields&quot;: [],
+      &quot;optional_fields&quot;: [],
+      &quot;details&quot;: [
+        {
+          &quot;SalesOrderProductObj&quot;: [
+            {
+              &quot;required_fields&quot;: [],
+              &quot;optional_fields&quot;: []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</div><p id="z4tg9iy_57">主对象和明细对象的 API 名必须来自当前企业的对象描述，不能只使用页面显示名称。</p></section><section class="chapter"><h3 id="z4tg9iy_53" data-toc="z4tg9iy_53">多对象创建</h3><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;create&quot;,
+  &quot;object_datas&quot;: [
+    {
+      &quot;object_api_name&quot;: &quot;AccountObj&quot;,
+      &quot;object_display_name&quot;: &quot;客户&quot;,
+      &quot;required_fields&quot;: [],
+      &quot;optional_fields&quot;: [],
+      &quot;details&quot;: []
+    },
+    {
+      &quot;object_api_name&quot;: &quot;ContactObj&quot;,
+      &quot;object_display_name&quot;: &quot;联系人&quot;,
+      &quot;required_fields&quot;: [],
+      &quot;optional_fields&quot;: [],
+      &quot;details&quot;: []
+    }
+  ]
+}
+</div></section></section><section class="chapter"><h2 id="update" data-toc="update">更新场景 update</h2><p id="z4tg9iy_59">更新场景最重要的是证明 Agent 修改了正确的记录。data_id 应引用目标记录的真实 ID 或由业务变量动态解析出的 ID。</p><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;update&quot;,
+  &quot;object_datas&quot;: [
+    {
+      &quot;object_api_name&quot;: &quot;ContactObj&quot;,
+      &quot;object_display_name&quot;: &quot;联系人&quot;,
+      &quot;data_id&quot;: &quot;${obj_data:ContactObj[测试联系人_id]}&quot;,
+      &quot;required_fields&quot;: [
+        {
+          &quot;api_name&quot;: &quot;mobile1&quot;,
+          &quot;value&quot;: &quot;replace-with-current-mobile&quot;,
+          &quot;display_value&quot;: &quot;replace-with-current-mobile&quot;,
+          &quot;field_type&quot;: &quot;text&quot;,
+          &quot;match_mode&quot;: &quot;exact&quot;
+        }
+      ],
+      &quot;optional_fields&quot;: [],
+      &quot;details&quot;: []
+    }
+  ],
+  &quot;expected_agents&quot;: [
+    &quot;DataEditAgent&quot;
+  ],
+  &quot;expected_tools&quot;: [
+    &quot;crm-record-edit&quot;,
+    {
+      &quot;name&quot;: &quot;sharecrm&quot;,
+      &quot;action&quot;: {
+        &quot;api_name&quot;: &quot;UpdateRecord&quot;
+      }
+    }
+  ],
+  &quot;loop&quot;: {
+    &quot;total&quot;: 8
+  }
+}
+</div><p id="z4tg9iy_61">需要验证实际落库时，可以增加 CRM 回查配置：</p><div class="code-block" data-lang="json">
+{
+  &quot;crm_readback_expect&quot;: {
+    &quot;object_data&quot;: [
+      {
+        &quot;field&quot;: &quot;mobile1&quot;,
+        &quot;expected&quot;: &quot;replace-with-current-mobile&quot;,
+        &quot;match_mode&quot;: &quot;exact&quot;
+      }
+    ]
+  }
+}
+</div><p id="z4tg9iy_63">工具调用成功、页面显示成功或最终文案正确，都不能单独证明目标记录已经正确落库； 需要通过回查目标对象和目标 ID 确认。</p></section><section class="chapter"><h2 id="query" data-toc="query">查询场景 query</h2><p id="z4tg9iy_64">查询场景通过 search_query_info 表达对象和过滤条件。该字段是 JSON 字符串， 字符串内部的动态变量会在执行时解析。</p><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;query&quot;,
+  &quot;object_api_name&quot;: &quot;ScheduleObj&quot;,
+  &quot;search_query_info&quot;: &quot;{\&quot;limit\&quot;:100,\&quot;offset\&quot;:0,\&quot;filters\&quot;:[{\&quot;field_name\&quot;:\&quot;begin_time\&quot;,\&quot;field_values\&quot;:[${time:未来1天_timestamp}],\&quot;operator\&quot;:\&quot;LTE\&quot;},{\&quot;field_name\&quot;:\&quot;end_time\&quot;,\&quot;field_values\&quot;:[${time:明天0点_timestamp}],\&quot;operator\&quot;:\&quot;GTE\&quot;},{\&quot;field_name\&quot;:\&quot;participants\&quot;,\&quot;field_values\&quot;:[\&quot;${employee:current_user}\&quot;],\&quot;operator\&quot;:\&quot;HASANYOF\&quot;}],\&quot;orders\&quot;:[{\&quot;fieldName\&quot;:\&quot;begin_time\&quot;,\&quot;isAsc\&quot;:true,\&quot;isReference\&quot;:false}]}&quot;
+}
+</div><p id="z4tg9iy_66">写查询条件时检查：</p><ul class="list _bullet" id="z4tg9iy_67"><li class="list__item" id="z4tg9iy_68"><p id="z4tg9iy_73">object_api_name 是目标对象 API 名。</p></li><li class="list__item" id="z4tg9iy_69"><p id="z4tg9iy_74">field_name 和 fieldName 符合当前接口结构。</p></li><li class="list__item" id="z4tg9iy_70"><p id="z4tg9iy_75">时间范围的起止边界符合业务含义。</p></li><li class="list__item" id="z4tg9iy_71"><p id="z4tg9iy_76">关联人员字段使用当前企业可解析的人员值。</p></li><li class="list__item" id="z4tg9iy_72"><p id="z4tg9iy_77">没有把展示名称误写成字段 API 名。</p></li></ul></section><section class="chapter"><h2 id="analysis" data-toc="analysis">聚合场景 analysis</h2><p id="z4tg9iy_78">聚合场景使用 analysis_mode: &quot;aggregation_compare&quot;。agg_type 为 count 时 统计记录数，为 sum 时还需要填写 agg_field。</p><section class="chapter"><h3 id="z4tg9iy_79" data-toc="z4tg9iy_79">按字段求和</h3><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;analysis&quot;,
+  &quot;analysis_mode&quot;: &quot;aggregation_compare&quot;,
+  &quot;aggregation&quot;: {
+    &quot;object_api_name&quot;: &quot;NewOpportunityObj&quot;,
+    &quot;query&quot;: {
+      &quot;object_describe_api_name&quot;: &quot;NewOpportunityObj&quot;,
+      &quot;search_query_info&quot;: &quot;{\&quot;limit\&quot;:100,\&quot;offset\&quot;:0,\&quot;filters\&quot;:[{\&quot;field_name\&quot;:\&quot;create_time\&quot;,\&quot;field_values\&quot;:${time:本月_range},\&quot;operator\&quot;:\&quot;BETWEEN\&quot;}],\&quot;orders\&quot;:[{\&quot;fieldName\&quot;:\&quot;last_modified_time\&quot;,\&quot;isAsc\&quot;:false}]}&quot;
+    },
+    &quot;agg_type&quot;: &quot;sum&quot;,
+    &quot;agg_field&quot;: &quot;amount&quot;,
+    &quot;tolerance&quot;: 0.001
+  },
+  &quot;expected_tools&quot;: [
+    {
+      &quot;name&quot;: &quot;sharecrm&quot;,
+      &quot;action&quot;: {
+        &quot;api_name&quot;: &quot;QueryRecordsAggregateBySQL&quot;
+      }
+    }
+  ],
+  &quot;loop&quot;: {
+    &quot;total&quot;: 4
+  }
+}
+</div></section><section class="chapter"><h3 id="z4tg9iy_80" data-toc="z4tg9iy_80">统计记录数</h3><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;analysis&quot;,
+  &quot;analysis_mode&quot;: &quot;aggregation_compare&quot;,
+  &quot;aggregation&quot;: {
+    &quot;object_api_name&quot;: &quot;AccountObj&quot;,
+    &quot;query&quot;: {
+      &quot;object_describe_api_name&quot;: &quot;AccountObj&quot;,
+      &quot;search_query_info&quot;: &quot;{\&quot;limit\&quot;:10000,\&quot;offset\&quot;:0,\&quot;filters\&quot;:[{\&quot;field_name\&quot;:\&quot;create_time\&quot;,\&quot;field_values\&quot;:${time:最近3个月_range},\&quot;operator\&quot;:\&quot;BETWEEN\&quot;}]}&quot;
+    },
+    &quot;agg_type&quot;: &quot;count&quot;
+  },
+  &quot;loop&quot;: {
+    &quot;total&quot;: 4
+  }
+}
+</div><p id="z4tg9iy_83">聚合条件无法被准确执行时，不要用未过滤的列表结果代替严格聚合结果；应先确认 对象、字段和聚合接口是否支持该查询。</p></section></section><section class="chapter"><h2 id="z4tg9iy_11" data-toc="z4tg9iy_11">参考答案语义校验</h2><p id="z4tg9iy_84">已知正确答案且不需要实时回查列表时，可以使用 reference_answer_match：</p><div class="code-block" data-lang="json">
+{
+  &quot;validate_type&quot;: &quot;analysis&quot;,
+  &quot;analysis_mode&quot;: &quot;reference_answer_match&quot;,
+  &quot;expected_answer&quot;: &quot;生产/加工/制造：32；通信/电子/互联网：22；贸易/批发/零售/租赁业：17；商业服务：5；金融业：5&quot;,
+  &quot;expected_skills&quot;: [],
+  &quot;expected_tools&quot;: [],
+  &quot;tool_match_config&quot;: {
+    &quot;should_consider_order&quot;: false,
+    &quot;should_exact_match&quot;: false,
+    &quot;threshold&quot;: 0.5,
+    &quot;verbose_mode&quot;: false
+  },
+  &quot;loop&quot;: {
+    &quot;total&quot;: 8
+  }
+}
+</div><p id="z4tg9iy_86">expected_answer 必须包含本次用例真正要求的业务事实。不要用过于宽泛的描述， 否则即使关键数字缺失也可能无法准确定位失败原因。</p></section><section class="chapter"><h2 id="z4tg9iy_12" data-toc="z4tg9iy_12">字段匹配方式</h2><div class="table-wrapper"><table class="wide" id="z4tg9iy_87"><thead><tr class="ijRowHead" id="z4tg9iy_88"><th id="z4tg9iy_96"><p>match_mode</p></th><th id="z4tg9iy_97"><p>含义</p></th><th id="z4tg9iy_98"><p>适用提示</p></th></tr></thead><tbody><tr id="z4tg9iy_89"><td id="z4tg9iy_99"><p>exact</p></td><td id="z4tg9iy_100"><p>精确匹配。</p></td><td id="z4tg9iy_101"><p>ID、时间戳和固定文本优先使用。</p></td></tr><tr id="z4tg9iy_90"><td id="z4tg9iy_102"><p>contains</p></td><td id="z4tg9iy_103"><p>包含匹配。</p></td><td id="z4tg9iy_104"><p>适合允许附加文案的文本字段。</p></td></tr><tr id="z4tg9iy_91"><td id="z4tg9iy_105"><p>case_insensitive</p></td><td id="z4tg9iy_106"><p>忽略大小写的精确匹配。</p></td><td id="z4tg9iy_107"><p>适合英文大小写不稳定的字段。</p></td></tr><tr id="z4tg9iy_92"><td id="z4tg9iy_108"><p>contains_ci</p></td><td id="z4tg9iy_109"><p>忽略大小写的包含匹配。</p></td><td id="z4tg9iy_110"><p>适合英文片段或标签。</p></td></tr><tr id="z4tg9iy_93"><td id="z4tg9iy_111"><p>semantic</p></td><td id="z4tg9iy_112"><p>语义匹配。</p></td><td id="z4tg9iy_113"><p>需要接受同义表达时使用。</p></td></tr><tr id="z4tg9iy_94"><td id="z4tg9iy_114"><p>semantic_contains</p></td><td id="z4tg9iy_115"><p>语义包含匹配。</p></td><td id="z4tg9iy_116"><p>需要在长文本中判断关键含义时使用。</p></td></tr><tr id="z4tg9iy_95"><td id="z4tg9iy_117"><p>fuzzy</p></td><td id="z4tg9iy_118"><p>文本类字段的双向包含。</p></td><td id="z4tg9iy_119"><p>只适用于 text、long_text、rich_text 等文本字段。</p></td></tr></tbody></table></div></section><section class="chapter"><h2 id="z4tg9iy_13" data-toc="z4tg9iy_13">常见错误</h2><ul class="list _bullet" id="z4tg9iy_120"><li class="list__item" id="z4tg9iy_121"><p id="z4tg9iy_127">用页面显示名称代替对象或字段 API 名。</p></li><li class="list__item" id="z4tg9iy_122"><p id="z4tg9iy_128">更新场景遗漏 data_id，导致无法证明修改目标。</p></li><li class="list__item" id="z4tg9iy_123"><p id="z4tg9iy_129">输入和预期结果各自生成了不同的随机值。</p></li><li class="list__item" id="z4tg9iy_124"><p id="z4tg9iy_130">聚合场景只校验最终回复数字，没有固定查询范围。</p></li><li class="list__item" id="z4tg9iy_125"><p id="z4tg9iy_131">只看 FINISHED 或 Agent 成功文案，没有核对业务校验和落库回查。</p></li><li class="list__item" id="z4tg9iy_126"><p id="z4tg9iy_132">用 expected_subagents 直接照抄历史模板，没有按当前版本确认实际读取键。</p></li></ul></section><section class="chapter"><h2 id="z4tg9iy_14" data-toc="z4tg9iy_14">下一步</h2><p id="z4tg9iy_133">继续阅读 <a href="input-and-variables.html" id="z4tg9iy_134" data-tooltip="测试用例的输入保存在 wholeBody__c 中。输入要尽量接近真实用户表达，但不要把 企业内部不可复用的记录 ID 直接写进用户问题。通常让 Agent 看到记录名称、编号、 主题或人员名称，再在预期结果中使用变量解析后的 ID 做严格校验。">输入、附件和变量</a> ，把动态数据安全地接入输入和校验。</p></section><div class="last-modified">30 八月 2026</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="test-data.html" class="navigation-links__prev">创建测试集和测试数据</a><a href="input-and-variables.html" class="navigation-links__next">输入、附件和变量</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.25.3-b857/app.js"></script></body></html>
